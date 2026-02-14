@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An expansive and attractive guide to Artificial Intelligence with visual aids.">
+    <title>The Grand AI Expo | Explore Artificial Intelligence</title>
+    
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --primary-light: #34495e;
+            --accent-blue: #3498db;
+            --accent-green: #2ecc71;
+            --text-color: #333;
+            --bg-light: #f4f7f6;
+            --bg-white: #ffffff;
+            --border-light: #ecf0f1;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            background: var(--bg-light); 
+            color: var(--text-color); 
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        header { 
+            background: var(--primary-dark); 
+            color: white; 
+            padding: 40px 20px; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 { font-size: 3em; margin: 0; }
+        header p { font-size: 1.2em; margin-top: 10px; }
+        
+        nav { 
+            background: var(--primary-light); 
+            padding: 15px 0; 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: bold; 
+            padding: 5px 10px; 
+            transition: background 0.3s ease;
+        }
+        nav a:hover { background-color: var(--accent-blue); border-radius: 5px; }
+        
+        main { 
+            max-width: 1200px; 
+            margin: 30px auto; 
+            padding: 30px; 
+            background: var(--bg-white); 
+            border-radius: 12px; 
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15); 
+        }
+        section { 
+            margin-bottom: 50px; 
+            border-bottom: 1px solid var(--border-light); 
+            padding-bottom: 30px; 
+        }
+        section:last-of-type { border-bottom: none; }
+        
+        h2 { 
+            color: var(--primary-dark); 
+            font-size: 2.2em; 
+            border-bottom: 3px solid var(--accent-blue); 
+            padding-bottom: 15px; 
+            margin-bottom: 25px;
+        }
+        h3 { color: var(--accent-green); font-size: 1.6em; margin-bottom: 15px; }
+        
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin-top: 20px;
+        }
+        .card { 
+            background: var(--bg-light); 
+            padding: 25px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
+            transition: transform 0.2s ease;
+        }
+        .card:hover { transform: translateY(-5px); }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { 
+            border: 1px solid var(--border-light); 
+            padding: 15px; 
+            text-align: left; 
+        }
+        th { background-color: var(--accent-blue); color: white; }
+        
+        form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin-top: 20px; }
+        label { font-weight: bold; margin-bottom: 5px; display: block; }
+        input[type="text"], input[type="email"], textarea, select { 
+            padding: 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 6px; 
+            font-size: 1em;
+            width: calc(100% - 24px);
+        }
+        input[type="checkbox"] { margin-right: 10px; }
+        button { 
+            background: var(--accent-green); 
+            color: white; 
+            padding: 15px 25px; 
+            border: none; 
+            border-radius: 6px; 
+            font-size: 1.1em; 
+            cursor: pointer; 
+            transition: background 0.3s ease; 
+        }
+        button:hover { background: #27ae60; }
+        
+        img { max-width: 100%; height: auto; border-radius: 8px; margin-top: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        figure { margin: 0; text-align: center; }
+        figcaption { font-style: italic; color: #666; margin-top: 10px; }
+        
+        .code-block { 
+            background: #232323; 
+            color: #f8f8f2; 
+            padding: 20px; 
+            border-radius: 8px; 
+            overflow-x: auto; 
+            margin-top: 20px;
+        }
+        code { 
+            font-family: 'Fira Code', 'Cascadia Code', monospace; 
+            background: rgba(255,255,255,0.1); 
+            padding: 2px 5px; 
+            border-radius: 3px; 
+        }
+        pre { margin: 0; white-space: pre-wrap; word-break: break-all; }
+
+        blockquote { 
+            border-left: 6px solid var(--accent-blue); 
+            padding: 15px 20px; 
+            margin: 20px 0; 
+            background: #e9f5ff; 
+            font-style: italic; 
+            color: #444; 
+            border-radius: 5px;
+        }
+        
+        footer { 
+            text-align: center; 
+            padding: 30px; 
+            background: var(--primary-dark); 
+            color: white; 
+            font-size: 0.9em; 
+            margin-top: 40px; 
+        }
+        footer p { margin: 5px 0; }
+        address { font-style: normal; margin-top: 10px; }
+        
+        /* Specific tag styling for comprehensive demo */
+        em { color: var(--accent-blue); font-weight: bold; }
+        strong { color: var(--primary-dark); }
+        small { font-size: 0.8em; opacity: 0.7; }
+        mark { background-color: #ffeda0; padding: 2px 4px; border-radius: 3px; }
+        del { text-decoration: line-through; color: #a0a0a0; }
+        ins { text-decoration: underline; color: var(--accent-green); }
+        sub, sup { font-size: 0.75em; line-height: 0; position: relative; vertical-align: baseline; }
+        sub { bottom: -0.25em; }
+        sup { top: -0.5em; }
+        kbd { background-color: #eee; border: 1px solid #ccc; border-radius: 3px; padding: 2px 4px; font-family: monospace; }
+        var { font-style: italic; color: #d67d2e; }
+        
+        .timeline { list-style: none; padding: 0; margin-top: 30px; }
+        .timeline li { 
+            position: relative; 
+            padding: 15px 0 15px 30px; 
+            border-left: 2px solid var(--accent-blue); 
+        }
+        .timeline li:before { 
+            content: ' '; 
+            background: var(--accent-blue); 
+            border: 3px solid var(--bg-white); 
+            border-radius: 50%; 
+            width: 15px; height: 15px; 
+            position: absolute; 
+            left: -8px; 
+            top: 20px; 
+        }
+    </style>
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <base href="https://example.com/ai-info/"> 
+</head>
+<body>
+
+    <header>
+        <h1><img src="https://via.placeholder.com/60x60/8e44ad/ffffff?text=AI" alt="AI Brain Icon" width="60" height="60" style="vertical-align: middle; margin-right: 15px; border-radius: 50%;"> The Grand AI Expo</h1>
+        <p>Your Ultimate Resource for Everything Artificial Intelligence</p>
+    </header>
+
+    <nav>
+        <a href="#introduction">Introduction</a>
+        <a href="#ai-types">AI Types</a>
+        <a href="#applications">Applications</a>
+        <a href="#history">History</a>
+        <a href="#metrics">Performance Metrics</a>
+        <a href="#gallery">Visuals</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contribute">Contribute</a>
+        <a href="#about">About Us</a>
+    </nav>
+
+    <main>
+        <article id="introduction">
+            <header>
+                <h2>Introduction to Artificial Intelligence</h2>
+                <p>Published on: <time datetime="2026-03-08">March 8, 2026</time> by <a href="#author"> Prince Gupta</a></p>
+            </header>
+            <figure>
+                
+                <figcaption>A futuristic representation of Artificial Intelligence.</figcaption>
+            </figure>
+            <p>Artificial Intelligence (<abbr title="Artificial Intelligence">AI</abbr>) is a rapidly evolving field of computer science dedicated to creating machines that can <em>reason, learn, and act autonomously</em>. It encompasses a broad range of technologies, from simple rule-based systems to complex neural networks capable of deep learning.</p>
+            
+            <blockquote>
+                "AI is not just about making computers smarter, but about making them more useful to humanity."
+                <cite>— Sundar Pichai</cite>
+            </blockquote>
+            <p>The potential of AI is immense, promising to transform every sector from healthcare and finance to education and entertainment. We are moving from a world where computers merely process data to one where they <strong>understand and interpret</strong> it.</p>
+        </article>
+
+        <hr>
+
+        <section id="ai-types">
+            <h2>Types of AI</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Narrow AI (Weak AI)</h3>
+                    <p>Designed for specific tasks, like image recognition or playing chess. It cannot perform beyond its programmed functions.</p>
+                    <figure>
+                        
+                        <figcaption>A chess-playing AI, an example of Narrow AI.</figcaption>
+                    </figure>
+                </div>
+                <div class="card">
+                    <h3>General AI (Strong AI)</h3>
+                    <p>Hypothetical AI that can understand, learn, and apply intelligence to any intellectual task that a human being can.</p>
+                    <figure>
+                        
+                        <figcaption>A robot interacting with its environment, hinting at General AI.</figcaption>
+                    </figure>
+                </div>
+                <div class="card">
+                    <h3>Superintelligence</h3>
+                    <p>An AI that surpasses human intellect in virtually every field, including scientific creativity, general wisdom, and social skills.</p>
+                    <figure>
+                        
+                        <figcaption>Conceptual art of a superintelligent network.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="applications">
+            <h2>Modern AI Applications</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Healthcare Diagnostics</h3>
+                    <p>AI assists doctors in diagnosing diseases with <ins>higher accuracy</ins> and speed, from MRI scans to genetic analysis.</p>
+                    <audio controls src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="card">
+                    <h3>Autonomous Vehicles</h3>
+                    <p>Self-driving cars use AI for perception, decision-making, and navigation. It's a complex system that <del>reduces human error</del> aims for safer roads.</p>
+                </div>
+                <div class="card">
+                    <h3>Natural Language Processing (NLP)</h3>
+                    <p>Powers virtual assistants, translation services, and sentiment analysis tools. Learn more about <abbr title="Natural Language Processing">NLP</abbr>.</p>
+                </div>
+            </div>
+            <p>Watch a demo of AI in action:</p>
+            <video width="100%" height="auto" controls poster="https://via.placeholder.com/600x400/555555/ffffff?text=AI+Video+Poster">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <hr>
+
+        <section id="history">
+            <h2>A Brief History of AI</h2>
+            <ul class="timeline">
+                <li>
+                    <h3>1950s - The Dawn of AI</h3>
+                    <p>Alan Turing proposes the Turing Test. John McCarthy coins the term "Artificial Intelligence."</p>
+                </li>
+                <li>
+                    <h3>1980s - Expert Systems</h3>
+                    <p>Focus shifts to knowledge-based systems for specific domains. LISP machines gain popularity.</p>
+                </li>
+                <li>
+                    <h3>2010s - Deep Learning Revolution</h3>
+                    <p>Breakthroughs in neural networks lead to significant advances in image and speech recognition.</p>
+                </li>
+                <li>
+                    <h3>2020s - Generative AI & LLMs</h3>
+                    <p>Large Language Models (LLMs) and generative AI begin to transform content creation and interaction.</p>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="metrics">
+            <h2>Performance Metrics: Understanding TGS</h2>
+            <p>To evaluate the efficiency of large language models and other generative AI, metrics like <strong>TGS</strong> (Tokens per GPU per Second) are crucial. A higher TGS indicates faster generation and better resource utilization.</p>
+            
+            <table>
+                <caption>Comparative AI Model Throughput (Max TGS)</caption>
+                <thead>
+                    <tr>
+                        <th>Model Architecture</th>
+                        <th>GPU Type (Example)</th>
+                        <th>Estimated Max TGS (Tokens/s)</th>
+                        <th>Energy Efficiency (Joules/Token)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Transformer-XL</td>
+                        <td>NVIDIA A100</td>
+                        <td><data value="450">450</data></td>
+                        <td><data value="0.05">0.05</data></td>
+                    </tr>
+                    <tr>
+                        <td>GPT-3 Equivalent</td>
+                        <td>NVIDIA H100</td>
+                        <td><data value="850">850</data></td>
+                        <td><data value="0.03">0.03</data></td>
+                    </tr>
+                    <tr>
+                        <td>Custom Diffusion Model</td>
+                        <td>AMD MI300X</td>
+                        <td><data value="600">600</data></td>
+                        <td><data value="0.04">0.04</data></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Note: TGS values are approximations and vary by implementation.</td>
+                    </tr>
+                </tfoot>
+            </table>
+            
+            <h3>Understanding the Formula</h3>
+            <p>The TGS for a given inference run can be approximated by:</p>
+            <div class="code-block">
+                <pre><code>
+<var>TGS</var> = (<var>total_output_tokens</var> / <var>num_gpus</var>) / <var>inference_time_seconds</var>
+
+# Example calculation
+total_output_tokens = 10000
+num_gpus = 4
+inference_time_seconds = 5
+
+calculated_tgs = (total_output_tokens / num_gpus) / inference_time_seconds
+print(f"Calculated TGS: {calculated_tgs}") # Output: Calculated TGS: 500.0
+                </code></pre>
+            </div>
+            <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to open command palette for more info.</p>
+        </section>
+        
+        <hr>
+
+        <section id="gallery">
+            <h2>AI in Art & Creativity</h2>
+            <div class="grid-container">
+                <figure>
+                    
+                    <figcaption>Generated image of a futuristic city.</figcaption>
+                </figure>
+                <figure>
+                    
+                    <figcaption>Abstract art created by an AI algorithm.</figcaption>
+                </figure>
+                <figure>
+                    
+                    <figcaption>AI-designed robot concept.</figcaption>
+                </figure>
+                <figure>
+                    
+                    <figcaption>Neural network visualization.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <dl>
+                <dt>What is the difference between AI and Machine Learning?</dt>
+                <dd>Machine Learning (ML) is a subset of AI that uses statistical methods to enable machines to improve with experience. AI is the broader concept of machines exhibiting intelligence.</dd>
+                
+                <dt>Is AI going to take over human jobs?</dt>
+                <dd>While AI will automate some tasks and change job descriptions, it's also expected to create new jobs and enhance human capabilities, leading to a <small>shift in the job market</small>.</dd>
+                
+                <dt>How does AI learn?</dt>
+                <dd>AI learns through algorithms that process vast amounts of data, identify patterns, and make predictions or decisions. This process is often called <sup>training</sup>.</dd>
+            </dl>
+        </section>
+
+        <hr>
+
+        <section id="contribute">
+            <h2>Contribute to the AI Community</h2>
+            <p>We welcome your insights and contributions to make this AI resource even better!</p>
+            <form action="https://example.com/submit-contribution" method="post">
+                <fieldset>
+                    <legend>Your Contribution Details</legend>
+                    <label for="contributor-name">Your Name:</label>
+                    <input type="text" id="contributor-name" name="contributor_name" placeholder="Anonymous" list="contributors-list">
+                    <datalist id="contributors-list">
+                        <option value="Dr. A.I. Analyst"></option>
+                        <option value="AI Enthusiast"></option>
+                    </datalist>
+
+                    <label for="contributor-email">Your Email:</label>
+                    <input type="email" id="contributor-email" name="contributor_email" placeholder="you@example.com" required>
+
+                    <label for="contribution-type">Type of Contribution:</label>
+                    <select id="contribution-type" name="contribution_type">
+                        <optgroup label="Content">
+                            <option value="article">New Article</option>
+                            <option value="update">Update Existing Info</option>
+                        </optgroup>
+                        <optgroup label="Technical">
+                            <option value="code">Code Snippet</option>
+                            <option value="bug">Report a Bug</option>
+                        </optgroup>
+                    </select>
+                </fieldset>
+
+                <label for="contribution-text">Your Content / Message:</label>
+                <textarea id="contribution-text" name="contribution_text" rows="10" placeholder="Enter your detailed contribution here..."></textarea>
+                
+                <label>
+                    <input type="checkbox" name="agree_terms" value="true" required>
+                    I agree to the <a href="terms.html" target="_blank">terms and conditions</a>.
+                </label>
+                
+                <button type="submit">Submit Contribution</button>
+                <button type="reset">Clear Form</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="about">
+            <h2>About This Project</h2>
+            <p>This project aims to be a comprehensive, open-source resource for understanding and exploring Artificial Intelligence.</p>
+            <address>
+                Managed by the <a href="mailto:info@aiexpo.com">AI Expo Team</a><br>
+                123 AI Boulevard, Silicon City, 90210
+            </address>
+            <p>Our mission: To demystify AI for everyone.</p>
+        </section>
+
+        <a href="#top" style="display: block; text-align: center; margin-top: 30px; color: var(--accent-blue);">Back to Top</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 The Grand AI Expo. All rights reserved.</p>
+        <p>Follow us on <a href="https://twitter.com/ai_expo" target="_blank">Twitter</a> and <a href="https://linkedin.com/company/ai-expo" target="_blank">LinkedIn</a>.</p>
+        <p>This page features a demonstration of nearly all standard HTML5 tags for a rich web experience.</p>
+    </footer>
+
+</body>
+</html>
